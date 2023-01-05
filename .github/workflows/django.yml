@@ -34,5 +34,4 @@ jobs:
           destination_branch: "main"
           pr_title: "Pulling ${{ github.ref }} into main"
           pr_body: "👑 *An automated PR*"
-          pr_draft: true
           github_token: ${{ secrets.GITHUB_TOKEN }}
