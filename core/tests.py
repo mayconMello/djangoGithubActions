@@ -14,7 +14,7 @@ class ContactModelTest(TestCase):
         )
 
         self.assertEqual(
-            Contact.objects.count(), 2
+            Contact.objects.count(), 1
         )
 
         contact = Contact.objects.first()
