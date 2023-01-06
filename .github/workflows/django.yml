@@ -33,5 +33,12 @@ jobs:
         with:
           destination_branch: "main"
           pr_title: "Pulling ${{ github.ref }} into main"
-          pr_body: "👑 *An automated PR*"
+          pr_body: "*An automated PR*"
           github_token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Invoke deployment hook
+        uses: distributhor/workflow-webhook@v2
+        env:
+          webhook_url: ${{ secrets.WEBHOOK_URL }}
+          webhook_secret: ${{ secrets.WEBHOOK_SECRET }}
+
