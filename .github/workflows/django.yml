@@ -42,5 +42,5 @@ jobs:
           webhook_type: 'json-extended'
           webhook_url: 'http://71ef-187-120-1-156.ngrok.io/hooks/'
           webhook_secret: 'test-secret'
-          data: '{ "weapon": "hammer", "drink" : "beer" }'
+          data: '{ "message": "ok" }'
 
