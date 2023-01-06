@@ -38,7 +38,8 @@ jobs:
 
       - name: Invoke deployment hook
         uses: distributhor/workflow-webhook@v2
-        with:
-          url: "http://71ef-187-120-1-156.ngrok.io/hooks/"
-          json: '{ "repository": "${{github.event.repository.full_name}}", "number": "${{github.event.number}}", "created_at": "${{github.event.pull_request.created_at}}", "updated_at": "${{github.event.pull_request.updated_at}}" }'
+        env:
+          webhook_type: 'json-extended'
+          webhook_url: 'http://71ef-187-120-1-156.ngrok.io/hooks/'
+          data: '{ "weapon": "hammer", "drink" : "beer" }'
 
