@@ -13,12 +13,29 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+import json
+
 from django.contrib import admin
+from django.http import HttpResponse
 from django.urls import include, path
+from django.views.decorators.csrf import csrf_exempt
+from django.views.decorators.http import require_POST
 
 from core import urls as core_urls
 
+
+@csrf_exempt
+@require_POST
+def receiver_webhooks(request):
+    payload = json.loads(request.body)
+
+    print(payload)
+
+    return HttpResponse()
+
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('core/', include(core_urls))
+    path('core/', include(core_urls)),
+    path('hooks/', receiver_webhooks)
 ]
